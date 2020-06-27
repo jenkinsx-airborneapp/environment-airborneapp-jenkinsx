@@ -1,18 +1,39 @@
+autoUpdate:
+  enabled: false
+  schedule: ""
+bootConfigURL: https://github.com/airborneapp/environment-airborneapp-jenkinsx
+buildPacks:
+  buildPackLibrary:
+    gitRef: master
+    gitURL: https://github.com/airborneapp/custom-buildpacks.git
+    name: go-airborne
 cluster:
-  clusterName: ""
-  environmentGitOwner: ""
+  clusterName: "airborneapp-eks-dev"
+  devEnvApprovers:
+    - zubair-airborneapp
+    - michael-airborneapp
+  environmentGitOwner: "airborneapp"
   environmentGitPublic: false
-  project: ""
-  provider: gke
-  zone: ""
+  provider: eks
+  region: us-east-1
+  registry: docker.io
+  zone: "us-east-1"
 gitops: true
 environments:
 - key: dev
-- key: staging
-- key: production
+  repository: environment-airborneapp-jenkinsx
+- key: app-dev
+  promotionStrategy: Auto
+  repository: environment-airborneapp-dev
+- key: app-staging
+  promotionStrategy: Manual
+  repository: environment-airborneapp-staging
+- key: app-production
+  promotionStrategy: Manual
+  repository: environment-airborneapp-production
 ingress:
-  domain: ""
-  externalDNS: false
+  domain: "app.airborneapp-dev.io"
+  externalDNS: true
   tls:
     email: ""
     enabled: false
@@ -33,3 +54,4 @@ versionStream:
   ref: "master"
   url: https://github.com/jenkins-x/jenkins-x-versions.git
 webhook: lighthouse
+terraform: true
