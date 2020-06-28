@@ -14,6 +14,7 @@ cluster:
     - michael-airborneapp
   environmentGitOwner: "airborneapp"
   environmentGitPublic: false
+  namespace: jx
   provider: eks
   region: us-east-1
   registry: docker.io
@@ -25,10 +26,10 @@ environments:
 - key: app-dev
   promotionStrategy: Auto
   repository: environment-airborneapp-dev
-- key: app-staging
+- key: staging
   promotionStrategy: Manual
   repository: environment-airborneapp-staging
-- key: app-production
+- key: production
   promotionStrategy: Manual
   repository: environment-airborneapp-production
 ingress:
