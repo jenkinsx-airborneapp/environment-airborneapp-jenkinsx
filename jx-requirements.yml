@@ -1,7 +1,7 @@
 autoUpdate:
   enabled: false
   schedule: ""
-bootConfigURL: https://github.com/airborneapp/environment-airborneapp-jenkinsx
+bootConfigURL: https://github.com/jenkinsx-airborneapp/environment-airborneapp-jenkinsx
 buildPacks:
   buildPackLibrary:
     gitRef: master
