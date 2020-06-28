@@ -23,7 +23,7 @@ gitops: true
 environments:
 - key: dev
   repository: environment-airborneapp-jenkinsx
-- key: app-dev
+- key: appDev
   promotionStrategy: Auto
   repository: environment-airborneapp-dev
 - key: staging

@@ -77,14 +77,14 @@ gitops:
 {{- end }}
 
 
-  app-dev:
-    repo: "{{ .Environments.app-dev.repository }}"
-    owner: "{{ .Environments.app-dev.owner | default .Requirements.cluster.environmentGitOwner }}"
+  appDev:
+    repo: "{{ .Environments.appDev.repository }}"
+    owner: "{{ .Environments.appDev.owner | default .Requirements.cluster.environmentGitOwner }}"
     server: ""
     namespace: app-dev
-  {{- if hasKey .Environments.app-dev "remoteCluster" }}
-    remote: {{ .Environments.app-dev.remoteCluster | default "false" }}
-  {{- end }}
+{{- if hasKey .Environments.appDev "remoteCluster" }}
+    remote: {{ .Environments.appDev.remoteCluster | default "false" }}
+{{- end }}
 
   staging:
     repo: "{{ .Environments.staging.repository }}"
